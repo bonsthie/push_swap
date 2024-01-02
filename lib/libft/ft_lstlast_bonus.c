@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/11/03 17:16:13 by babonnet          #+#    #+#             */
+/*   Updated: 2023/11/15 11:17:51 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_node
+t_list	*ft_lstlast(t_list *lst)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	t_list	*prev;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	prev = NULL;
+	while (lst)
+	{
+		prev = lst;
+		lst = lst->next;
+	}
+	return (prev);
+}

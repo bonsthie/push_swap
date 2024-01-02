@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/10/30 22:36:04 by bbonnet           #+#    #+#             */
+/*   Updated: 2023/11/06 13:07:14 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include <stddef.h>
 
-typedef struct s_node
+void	*ft_memset(void *str, int c, size_t n)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	unsigned char	*str_cp;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	str_cp = (unsigned char *) str;
+	while (n--)
+		str_cp[n] = (unsigned char) c;
+	return (str);
+}

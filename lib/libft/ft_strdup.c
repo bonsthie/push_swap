@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/10/31 22:41:02 by bbonnet           #+#    #+#             */
+/*   Updated: 2023/11/08 16:35:18 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_node
+char	*ft_strdup(const char *source)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	char	*dest;
+	size_t	source_len;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	source_len = ft_strlen(source) + 1;
+	dest = malloc((source_len) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	ft_strlcpy(dest, source, source_len);
+	return (dest);
+}

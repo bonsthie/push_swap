@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/11/03 12:19:01 by babonnet          #+#    #+#             */
+/*   Updated: 2023/11/15 11:16:57 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_node
+t_list	*ft_lstnew(void *content)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	t_list	*new;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}

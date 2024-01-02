@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/10/30 19:33:17 by bbonnet           #+#    #+#             */
+/*   Updated: 2023/11/09 16:46:33 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include <stddef.h>
 
-typedef struct s_node
+size_t	ft_strlen(const char *str)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	const char	*start;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	start = str;
+	while (*start)
+		++start;
+	return (start - str);
+}

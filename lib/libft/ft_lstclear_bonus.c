@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/11/03 18:14:54 by babonnet          #+#    #+#             */
+/*   Updated: 2023/11/15 11:18:56 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_node
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	t_list	*node;
+	t_list	*node_next;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	if (!lst || !del || !*lst)
+		return ;
+	node = *lst;
+	while (node)
+	{
+		node_next = node->next;
+		ft_lstdelone(node, del);
+		node = node_next;
+	}
+	*lst = NULL;
+}

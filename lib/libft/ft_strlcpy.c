@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/10/31 17:18:11 by bbonnet           #+#    #+#             */
+/*   Updated: 2023/11/06 13:12:16 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_node
+size_t	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	unsigned int	i;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	i = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (i < size - 1 && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (size != 0)
+		dest[i] = '\0';
+	return (ft_strlen(src));
+}

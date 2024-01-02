@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/10/30 23:25:03 by bbonnet           #+#    #+#             */
+/*   Updated: 2023/11/08 16:34:55 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include <stddef.h>
 
-typedef struct s_node
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	size_t					i;
+	const unsigned char		*str_cp;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	i = 0;
+	str_cp = (const unsigned char *) str;
+	while (n - i > 0)
+	{
+		if (str_cp[i] == (const unsigned char) c)
+			return ((void *) &str_cp[i]);
+		i++;
+	}
+	return (NULL);
+}

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/11/01 14:01:25 by bbonnet           #+#    #+#             */
+/*   Updated: 2023/11/08 16:36:00 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_node
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	size_t	length_s1;
+	size_t	length_s2;
+	char	*dest;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	if (!s1)
+		return (NULL);
+	length_s1 = ft_strlen(s1);
+	length_s2 = ft_strlen(s2);
+	dest = malloc((length_s1 + length_s2 + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	ft_strlcpy(dest, s1, length_s1 + 1);
+	ft_strlcat(dest, s2, length_s1 + length_s2 + 1);
+	return (dest);
+}

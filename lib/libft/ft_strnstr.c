@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/10/31 16:15:25 by bbonnet           #+#    #+#             */
+/*   Updated: 2023/11/08 16:36:12 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_node
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	size_t	i;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	if (!little[0])
+		return ((char *) big);
+	if (len == 0)
+		return (NULL);
+	i = 0;
+	while (big[i] && i + ft_strlen(little) <= len)
+	{
+		if (ft_strncmp(big + i, little, ft_strlen(little)) == 0)
+			return ((char *) big + i);
+		i++;
+	}
+	return (NULL);
+}

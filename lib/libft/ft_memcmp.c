@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Created: 2023/10/31 15:59:39 by bbonnet           #+#    #+#             */
+/*   Updated: 2023/11/06 13:06:13 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include <stddef.h>
 
-typedef struct s_node
+int	ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
 {
-	char **nums;
-	struct s_node *next;
-} t_node;
+	const unsigned char	*ptr1_uc;
+	const unsigned char	*ptr2_uc;
+	size_t				i;
 
-typedef struct s_head
-{
-	int *stack_a;
-	int *stack_b;
-	int	size_a;
-	int size_b;
-	int size;
-} t_head;
-
-#endif
+	i = 0;
+	ptr1_uc = (const unsigned char *) ptr1;
+	ptr2_uc = (const unsigned char *) ptr2;
+	while (i < num)
+	{
+		if (ptr1_uc[i] != ptr2_uc[i])
+			return ((int)(ptr1_uc[i] - ptr2_uc[i]));
+		i++;
+	}
+	return (0);
+}
