@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
+/*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 19:06:36 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/04 00:39:33 by bbonnet          ###   ########.fr       */
+/*   Created: 2024/01/01 20:16:12 by babonnet          #+#    #+#             */
+/*   Updated: 2024/01/01 20:31:13 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "ft_printf.h"
+#include <stddef.h>
 
-
-
-int main(int ac, char **av)
+int	ft_strcmp(const char *first, const char *second)
 {
-    // todo check for double
-	t_head *head;
+	size_t	i;
 
-	head = stack_init(ac, av);
-	if (!head)
-		return (1);
-    ft_algorithm(head);
-    return (0);
+	i = 0;
+	while (first[i] == second[i] && first[i])
+		i++;
+	return ((unsigned char) first[i] - (unsigned char) second[i]);
 }

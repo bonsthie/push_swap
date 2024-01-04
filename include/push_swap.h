@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/02 15:37:23 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:39:19 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,18 @@ typedef struct s_head
 	int size_b;
 	int size;
 } t_head;
+
+#define BOTH 'C'
+
+t_head *stack_init(int size, char **strs);
+
+//move
+void push(t_head *head, char stack_name);
+void swap(t_head *head, char stack_name);
+void rotate(t_head *head, char stack_name);
+void reverse_rotate(t_head *head, char stack_name);
+
+// algorithm
+void ft_algorithm(t_head *head);
 
 #endif

@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_algorithm.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 19:06:36 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/04 00:39:33 by bbonnet          ###   ########.fr       */
+/*   Created: 2024/01/03 23:11:13 by bbonnet           #+#    #+#             */
+/*   Updated: 2024/01/04 01:16:45 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "ft_printf.h"
 
-
-
-int main(int ac, char **av)
+void ft_algorithm(t_head *head)
 {
-    // todo check for double
-	t_head *head;
+    int i;
+    int j;
 
-	head = stack_init(ac, av);
-	if (!head)
-		return (1);
-    ft_algorithm(head);
-    return (0);
+    i = 0;
+    while (head->size_a)
+    {
+        j = head->size_a;
+        while (j)
+        {
+            if ((head->stack_a[head->size_a - 1] >> i) & 0x1)
+                push(head, 'B');
+            else
+                rotate(head, 'A');
+            j--;
+        }
+        i++;
+    }
 }

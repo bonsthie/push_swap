@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 19:06:36 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/04 00:39:33 by bbonnet          ###   ########.fr       */
+/*   Created: 2024/01/03 22:42:40 by bbonnet           #+#    #+#             */
+/*   Updated: 2024/01/03 22:43:34 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "ft_printf.h"
-
-
-
-int main(int ac, char **av)
+void ft_swap(int *a, int *b)
 {
-    // todo check for double
-	t_head *head;
+    int tmp;
 
-	head = stack_init(ac, av);
-	if (!head)
-		return (1);
-    ft_algorithm(head);
-    return (0);
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
 }

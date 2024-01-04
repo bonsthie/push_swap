@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 19:06:36 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/04 00:39:33 by bbonnet          ###   ########.fr       */
+/*   Created: 2024/01/03 20:42:15 by bbonnet           #+#    #+#             */
+/*   Updated: 2024/01/03 20:42:52 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "ft_printf.h"
+#include <stdlib.h>
 
-
-
-int main(int ac, char **av)
+void free_parse(char ***parse)
 {
-    // todo check for double
-	t_head *head;
+	int i;
+	int j;
 
-	head = stack_init(ac, av);
-	if (!head)
-		return (1);
-    ft_algorithm(head);
-    return (0);
+	i = 0;
+	while (parse[i])
+	{
+		j = 0;
+		while (parse[i][j])
+		{
+			free(parse[i][j]);
+			j++;
+		}
+		free(parse[i]);
+		i++;
+	}
+	free(parse);
 }

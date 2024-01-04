@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 19:06:36 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/04 00:39:33 by bbonnet          ###   ########.fr       */
+/*   Created: 2024/01/04 00:03:20 by bbonnet           #+#    #+#             */
+/*   Updated: 2024/01/04 00:08:30 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "ft_printf.h"
-
-
-
-int main(int ac, char **av)
+int is_sorted(int *stack, int stack_size)
 {
-    // todo check for double
-	t_head *head;
-
-	head = stack_init(ac, av);
-	if (!head)
-		return (1);
-    ft_algorithm(head);
-    return (0);
+    stack_size--;
+    while (stack_size > 0)
+    {
+        if (stack[stack_size - 1] < stack[stack_size])
+            return (0);
+        stack_size--;
+    }
+    return (1);
 }
