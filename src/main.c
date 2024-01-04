@@ -6,7 +6,7 @@
 /*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:06:36 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/04 00:39:33 by bbonnet          ###   ########.fr       */
+/*   Updated: 2024/01/04 01:33:27 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main(int ac, char **av)
 {
-    // todo check for double
+    // todo check for double and int max/min
 	t_head *head;
 
 	head = stack_init(ac, av);
