@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
+/*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/04 00:39:19 by bbonnet          ###   ########.fr       */
+/*   Updated: 2024/01/05 22:44:43 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_head
 
 #define BOTH 'C'
 
+#define ABS(nb) nb > 0 ? nb : -nb
+
 t_head *stack_init(int size, char **strs);
 
 //move
@@ -39,6 +41,7 @@ void rotate(t_head *head, char stack_name);
 void reverse_rotate(t_head *head, char stack_name);
 
 // algorithm
-void ft_algorithm(t_head *head);
+void dicotomie(t_head *head);
+void ft_youenn_algorithm(t_head *head);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
+/*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:26:55 by bbonnet           #+#    #+#             */
-/*   Updated: 2024/01/03 21:32:26 by bbonnet          ###   ########.fr       */
+/*   Updated: 2024/01/05 18:02:18 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,19 @@ static char ***ft_parse(int size, char **strs, int *stack_size)
 	return (parse);
 }
 
-static void fill_stack(int *stack, char ***parse)
+static void fill_stack(int *stack, char ***parse, int stack_size)
 {
-    int i;
     int j;
     int k;
 
-    i = 0;
     j = 0;
     while (parse[j])
     {
         k = 0;
         while(parse[j][k])
         {
-            stack[i] = ft_atoi(parse[j][k]);
-            i++;
+			stack_size--;
+            stack[stack_size] = ft_atoi(parse[j][k]);
             k++;
         }
         j++;
@@ -113,7 +111,7 @@ static t_head *create_stack(char ***parse, int stack_size)
     head->size_a = stack_size;
     head->size = stack_size;
     head->size_b = 0;
-    fill_stack(head->stack_a, parse);
+    fill_stack(head->stack_a, parse, stack_size);
     return (head);
 }
 
