@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_youenn_algorithm.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
+/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:28:08 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/06 00:00:36 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/06 20:58:35 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
+#include <limits.h>
 #include <unistd.h>
 
 void sort_three_element_a(t_head *head)
@@ -25,7 +26,7 @@ void sort_three_element_a(t_head *head)
 		swap(head, 'A');
 }
 
-int cost_to_place_in_a(t_head *head, int nb)
+int index_to_place_in_a(t_head *head, int nb)
 {
 	int i;
 	int closest;
@@ -33,10 +34,10 @@ int cost_to_place_in_a(t_head *head, int nb)
 
 	i = 0;
 	closest = -1;
-	closest_value = -1;
+	closest_value = INT_MAX;
 	while (i < head->size_a)
 	{
-		if (head->stack_a[i] > nb && (closest == -1 || head->stack_a[i] < closest_value))
+		if (head->stack_a[i] < nb && (closest == -1 || head->stack_a[i] > closest_value))
 		{
 			closest = i;
 			closest_value = head->stack_a[i];
@@ -45,7 +46,14 @@ int cost_to_place_in_a(t_head *head, int nb)
 	}
 	if (closest == -1)
 		return (-1);
-	return (closest % (head->size_a / 2));
+	return (closest);
+}
+
+int cost_to_put_on_top(int index, int stack_size)
+{
+    if (index > (stack_size / 2))
+        return (ABS(index - stack_size));
+    return (index + 1);
 }
 
 int find_lowest_cost(t_head *head)
@@ -56,11 +64,10 @@ int find_lowest_cost(t_head *head)
 	int	i;
 
 	lowest_cost = -1;
-	lowest_cost = -1;
 	i = 0;
 	while(i < head->size_b)
 	{
-		tmp = i % (head->size_b / 2) + ABS(cost_to_place_in_a(head, head->stack_b[i]) * 2);
+		tmp = cost_to_put_on_top(i, head->size_b) + cost_to_put_on_top(index_to_place_in_a(head, head->stack_b[i]), head->size_a);
 		if (tmp < lowest_cost || lowest_cost == -1)
 		{
 			lowest_cost = tmp;
@@ -71,58 +78,55 @@ int find_lowest_cost(t_head *head)
 	return (lowest_cost_index);
 }
 
+//int find_lowest_cost(t_head head, int depth)
+
 void push_lowest_cost(t_head *head, int index)
 {
-	int nb;
+    int cost;
 
-	nb = head->stack_b[index];
-	ft_putnbr_fd(nb, 2);
-	write(2, "\n", 1);
-	if (index > (head->size_b / 2))
-	{
-		while (head->stack_b[head->size_b - 1] != nb)
-			rotate(head, 'B');
-	}
-	else
-	{
-		while (head->stack_b[head->size_b - 1] != nb)
-			reverse_rotate(head, 'B');
-	}
-	index = cost_to_place_in_a(head, head->stack_b[index] + 1);
-	nb = head->stack_a[ABS(index)];
-	if (index == -1)
-	{
-		ft_putstr_fd("-1 case\n", 2);
-		push(head, 'A');
-		rotate(head, 'A');
-	}
-	else if (index > (head->size_a / 2))
-	{
-		ft_putstr_fd("> case\n", 2);
-		while(head->stack_a[head->size_a - 1] != nb)
-			rotate(head, 'A');		
-		push(head, 'A');
-		while(index)
-		{
-			ft_printf("1 %d\n", index);
-			reverse_rotate(head, 'A');
-			index--;
-		}
-	}
-	else
-	{
-		ft_putstr_fd("< case\n", 2);
-		while(head->stack_a[head->size_a - 1] != nb)
-			reverse_rotate(head, 'A');
-		push(head, 'A');
-		while(index)
-		{
-			ft_printf("2 %d\n", index);
-			rotate(head, 'A');
-			index--;
-		}
-	}
+    cost = index_to_place_in_a(head, head->stack_b[index]);
+    if (cost == -1)
+    {
+        push(head, 'A');
+        rotate(head, 'A');
+    }
+    else if (cost < (head->size_a / 2))
+    {
+        while (cost)
+        {
+            reverse_rotate(head, 'A');
+            cost--;
+        }
+        push(head, 'A');
+    }
+    else
+    {
+        while (cost < head->size_a)
+        {
+            rotate(head, 'A');
+            cost++;
+        }
+        push(head, 'A');
+    }
 }
+
+void up_index_on_top_b(t_head *head, int index)
+{
+    int nb;
+
+    nb = head->stack_b[index];
+    if (index > (head->size_b / 2))
+    {
+        while(head->stack_b[head->size_b - 1] != nb)
+            rotate(head, 'B');
+    }
+    else
+    {
+        while(head->stack_b[head->size_b - 1] != nb)
+            reverse_rotate(head, 'B');
+    }
+}
+
 
 void ft_youenn_algorithm(t_head *head)
 {
@@ -133,9 +137,10 @@ void ft_youenn_algorithm(t_head *head)
 	while(head->size_b)
 	{
 		lowest_cost = find_lowest_cost(head);
-		push_lowest_cost(head, lowest_cost);
+        ft_putnbr_fd(lowest_cost, 2);
+        write(2, "\n", 1);
+        up_index_on_top_b(head, lowest_cost);
+		push_lowest_cost(head, head->size_b - 1);
 	}
 
 }
-
-//19 15 5 12 18 1 7 4 16 10 8 3 9 6 14 17 11 2 20 13
