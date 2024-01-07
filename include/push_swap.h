@@ -6,7 +6,7 @@
 /*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/06 20:51:34 by bbonnet          ###   ########.fr       */
+/*   Updated: 2024/01/06 21:46:04 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,17 @@ void swap(t_head *head, char stack_name);
 void rotate(t_head *head, char stack_name);
 void reverse_rotate(t_head *head, char stack_name);
 
+//silent move
+void silent_push(t_head *head, char stack_name);
+void silent_swap(t_head *head, char stack_name);
+void silent_rotate(t_head *head, char stack_name);
+void silent_reverse_rotate(t_head *head, char stack_name);
+
 // algorithm
 void dicotomie(t_head *head);
+int index_to_place_in_a(t_head *head, int nb);
+int find_lowest_cost(t_head *head, int depth);
+
 void ft_youenn_algorithm(t_head *head);
 
 #endif

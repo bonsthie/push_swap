@@ -1,0 +1,165 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_optimise_move.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/06 21:04:53 by bbonnet           #+#    #+#             */
+/*   Updated: 2024/01/06 22:29:46 by bbonnet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+#include "libft.h"
+
+static t_head *duplicate_head(t_head *head)
+{
+    t_head *head_cpy;
+
+    head_cpy = ft_calloc(1, sizeof(t_head));
+    if (!head)
+        return (NULL);
+    head_cpy->stack_a = ft_calloc(head->size, sizeof(int));
+    head_cpy->stack_b = ft_calloc(head->size, sizeof(int));
+    if (!head_cpy->stack_a || !head_cpy->stack_b)
+    {
+        if (head_cpy->stack_a)
+            free(head_cpy->stack_a);
+        if (head_cpy->stack_b)
+            free(head_cpy->stack_b);
+        free(head_cpy);
+        return (NULL);
+    }
+    ft_memcpy(head_cpy->stack_a, head->stack_a, head->size * sizeof(int));
+    ft_memcpy(head_cpy->stack_b, head->stack_b, head->size * sizeof(int));
+
+    head_cpy->size_a = head->size_a;
+    head_cpy->size_b = head->size_b;
+    head_cpy->size = head->size;
+    return(head_cpy);
+}
+
+
+int silent_push_lowest_cost(t_head *head, int index)
+{
+    int cost;
+    int count;
+
+    count = 0;
+    cost = index_to_place_in_a(head, head->stack_b[index]);
+    if (cost == -1)
+    {
+        silent_push(head, 'A');
+        silent_rotate(head, 'A');
+        return (2);
+    }
+    else if (cost < (head->size_a / 2))
+    {
+        while (cost)
+        {
+            silent_reverse_rotate(head, 'A');
+            count++;
+            cost--;
+        }
+        silent_push(head, 'A');
+    }
+    else
+    {
+        while (cost < head->size_a)
+        {
+            count++;
+            silent_rotate(head, 'A');
+            cost++;
+        }
+        silent_push(head, 'A');
+    }
+    return (count + 1);
+}
+
+
+static int silent_up_index_on_top_b(t_head *head, int index)
+{
+    int nb;
+    int count;
+
+    nb = head->stack_b[index];
+    count = 0;
+    if (index > (head->size_b / 2))
+    {
+        while(head->stack_b[head->size_b - 1] != nb)
+        {
+            silent_rotate(head, 'B');
+            //ft_putstr_fd("silent_up_index_on_top_b rotate\n", 2);
+            count++;
+        }
+    }
+    else
+    {
+        while(head->stack_b[head->size_b - 1] != nb)
+        {
+            silent_reverse_rotate(head, 'B');
+            //ft_putstr_fd("silent_up_index_on_top_b reverse_rotate\n", 2);
+            count++;
+        }
+    }
+    return (count);
+}
+int calculate_cost(t_head *head, int index, int depth_count, int depth)
+{
+    int count;
+
+    if (depth_count >= depth)
+        return (0);
+    count = silent_up_index_on_top_b(head, index);
+    count += silent_push_lowest_cost(head, index);
+    return (count + calculate_cost(head, index, depth_count + 1, depth));
+    ft_putstr_fd("calculate_cost\n", 2);
+}
+
+int find_lowest_cost(t_head *head, int depth)
+{
+    t_head *head_cpy;
+    int i;
+    int lowest;
+    int lowest_index;
+    int tmp;
+
+    i = 0;
+    lowest_index = -1;
+    head_cpy = duplicate_head(head);
+    if (!head_cpy)
+        return (-1);
+    while (i < head->size_b)
+    {
+        for(int i = 0; i < head->size_a; i++)
+        {
+            ft_putnbr_fd(head_cpy->stack_a[i], 2);
+            write(2, " ", 1);
+        }
+        write(2, "\n", 1);
+        for(int i = 0; i < head->size_b; i++)
+        {
+            ft_putnbr_fd(head_cpy->stack_b[i], 2);
+            write(2, " ", 1);
+        }
+        write(2, "\n", 1);
+        tmp = calculate_cost(head_cpy, i, 1, depth);
+        if (lowest_index == -1 || tmp < lowest)
+        {
+            lowest_index = i;
+            lowest = tmp;
+        }
+        ft_memcpy(head_cpy->stack_a, head->stack_a, head->size * sizeof(int));
+        ft_memcpy(head_cpy->stack_b, head->stack_b, head->size * sizeof(int));
+        head_cpy->size_a = head->size_a;
+        head_cpy->size_b = head->size_b;
+        i++;
+        ft_putstr_fd("find_lowest_cost\n", 2);
+    }
+    free(head_cpy->stack_a);
+    free(head_cpy->stack_b);
+    free(head_cpy);
+    return (lowest_index);
+}
+
