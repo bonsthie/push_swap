@@ -6,24 +6,29 @@
 /*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 21:04:53 by bbonnet           #+#    #+#             */
-/*   Updated: 2024/01/07 00:22:28 by bbonnet          ###   ########.fr       */
+/*   Updated: 2024/01/07 21:58:53 by bbonnet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
+#include "limit.h"
 
 static t_head *duplicate_head(t_head *head)
 {
     t_head *head_cpy;
 
-    head_cpy = ft_calloc(1, sizeof(t_head));
-    if (!head)
+    head_cpy = malloc(sizeof(t_head));
+    if (!head_cpy)
+    {
+        ft_putstr_fd("malloc head failed bozo", 2);
         return (NULL);
-    head_cpy->stack_a = ft_calloc(head->size, sizeof(int));
-    head_cpy->stack_b = ft_calloc(head->size, sizeof(int));
+    }
+    head_cpy->stack_a = malloc(head->size * sizeof(int));
+    head_cpy->stack_b = malloc(head->size * sizeof(int));
     if (!head_cpy->stack_a || !head_cpy->stack_b)
     {
+        ft_putstr_fd("malloc failed bozo", 2);
         if (head_cpy->stack_a)
             free(head_cpy->stack_a);
         if (head_cpy->stack_b)
@@ -88,8 +93,6 @@ static int silent_up_index_on_top_b(t_head *head, int index)
         while(head->stack_b[head->size_b - 1] != nb)
         {
             silent_rotate(head, 'B');
-            if (count > head->size_b)
-                return (count);
             count++;
         }
     }
@@ -98,8 +101,6 @@ static int silent_up_index_on_top_b(t_head *head, int index)
         while(head->stack_b[head->size_b - 1] != nb)
         {
             silent_reverse_rotate(head, 'B');
-            if (count > head->size_b)
-                return (count);
             count++;
         }
     }
@@ -108,7 +109,7 @@ static int silent_up_index_on_top_b(t_head *head, int index)
 
 int calculate_cost(t_head *head, int index)
 {
-    return (silent_up_index_on_top_b(head, index) + silent_push_lowest_cost_to_a(head, index));
+    return (silent_up_index_on_top_b(head, index) + silent_push_lowest_cost_to_a(head, 0));
 }
 
 int find_lowest_cost(t_head *head, int depth)
@@ -121,14 +122,16 @@ int find_lowest_cost(t_head *head, int depth)
 
     if (depth <= 0)
         return (0);
-    i = 0;
+    i = head->size_b - 1;
     lowest_index = -1;
     head_cpy = duplicate_head(head);
     if (!head_cpy)
-        return (-1);
-    while (i < head->size_b)
+        return (MIN_INT);
+    while (i >= 0)
     {
-        tmp = calculate_cost(head_cpy, i) + find_lowest_cost(head_cpy, depth - 1);
+        tmp = calculate_cost(head_cpy, i);
+        int tmp2 = find_lowest_cost(head_cpy, depth - 1);
+        tmp += tmp2;
         if (lowest_index == -1 || tmp < lowest)
         {
             lowest_index = i;
@@ -138,7 +141,7 @@ int find_lowest_cost(t_head *head, int depth)
         ft_memcpy(head_cpy->stack_b, head->stack_b, head->size * sizeof(int));
         head_cpy->size_a = head->size_a;
         head_cpy->size_b = head->size_b;
-        i++;
+        i--;
     }
     free(head_cpy->stack_a);
     free(head_cpy->stack_b);
