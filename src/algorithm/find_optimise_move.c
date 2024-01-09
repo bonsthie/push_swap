@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_optimise_move.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
+/*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 21:04:53 by bbonnet           #+#    #+#             */
-/*   Updated: 2024/01/07 21:58:53 by bbonnet          ###   ########.fr       */
+/*   Updated: 2024/01/08 18:36:23 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ static int silent_up_index_on_top_b(t_head *head, int index)
 
 int calculate_cost(t_head *head, int index)
 {
-    return (silent_up_index_on_top_b(head, index) + silent_push_lowest_cost_to_a(head, 0));
+    return (silent_up_index_on_top_b(head, index) + silent_push_lowest_cost_to_a(head, head->size_b - 1));
 }
 
 int find_lowest_cost(t_head *head, int depth)
@@ -122,16 +122,16 @@ int find_lowest_cost(t_head *head, int depth)
 
     if (depth <= 0)
         return (0);
-    i = head->size_b - 1;
+    i = (head->size_b - 1);
     lowest_index = -1;
     head_cpy = duplicate_head(head);
     if (!head_cpy)
         return (MIN_INT);
     while (i >= 0)
     {
-        tmp = calculate_cost(head_cpy, i);
-        int tmp2 = find_lowest_cost(head_cpy, depth - 1);
-        tmp += tmp2;
+        tmp = calculate_cost(head_cpy, i) + find_lowest_cost(head_cpy, depth - 1);
+		ft_putnbr_fd(tmp, 1);
+        ft_putstr_fd("\n", 1);
         if (lowest_index == -1 || tmp < lowest)
         {
             lowest_index = i;
