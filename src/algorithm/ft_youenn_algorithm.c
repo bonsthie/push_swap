@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_youenn_algorithm.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
+/*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:28:08 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/06 20:58:35 by bbonnet          ###   ########.fr       */
+/*   Updated: 2024/01/10 02:05:52 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,19 @@ void sort_three_element_a(t_head *head)
 		swap(head, 'A');
 }
 
-int index_to_place_in_a(t_head *head, int nb)
+int	index_to_place_in_a(t_head *head, int nb)
 {
-	int i;
-	int closest;
-	int closest_value;
+	int	i;
+	int	closest;
+	int	closest_value;
 
 	i = 0;
 	closest = -1;
 	closest_value = INT_MAX;
 	while (i < head->size_a)
 	{
-		if (head->stack_a[i] < nb && (closest == -1 || head->stack_a[i] > closest_value))
+		if (head->stack_a[i] < nb && (closest == -1
+				|| head->stack_a[i] > closest_value))
 		{
 			closest = i;
 			closest_value = head->stack_a[i];
@@ -45,7 +46,7 @@ int index_to_place_in_a(t_head *head, int nb)
 		i++;
 	}
 	if (closest == -1)
-		return (-1);
+		ft_putstr_fd("tsetse", 2);
 	return (closest);
 }
 
