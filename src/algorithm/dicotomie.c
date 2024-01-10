@@ -6,18 +6,18 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:32:07 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/05 19:35:57 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/10 05:27:36 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "libft.h"
 #include "limit.h"
+#include "push_swap.h"
 
-static void ft_sort(int *list, int list_size)
+static void	ft_sort(int *list, int list_size)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < list_size)
@@ -33,9 +33,9 @@ static void ft_sort(int *list, int list_size)
 	}
 }
 
-static double find_median(int *list, int list_size)
+static double	find_median(int *list, int list_size)
 {
-	int *list_sort;
+	int		*list_sort;
 	double	median;
 
 	list_sort = malloc(list_size * sizeof(int));
@@ -43,18 +43,18 @@ static double find_median(int *list, int list_size)
 		return (MIN_INT - 1);
 	ft_memcpy(list_sort, list, list_size * sizeof(int));
 	ft_sort(list_sort, list_size);
-
 	if (list_size % 2 == 1)
 		median = list_sort[(list_size + 1) / 2];
 	else
-		median = (double)(list_sort[list_size / 2] + list_sort[(list_size + 1) / 2]) / 2.0;
+		median = (double)(list_sort[list_size / 2] + list_sort[(list_size + 1)
+				/ 2]) / 2.0;
 	free(list_sort);
 	return (median);
 }
 
-void dicotomie(t_head *head)
+void	dicotomie(t_head *head)
 {
-	double median;
+	double	median;
 
 	while (head->size_a > 3)
 	{
@@ -64,7 +64,7 @@ void dicotomie(t_head *head)
 			ft_putstr_fd("error [malloc failed when finding the median]", 2);
 			return ;
 		}
-		while(head->stack_a[head->size_a - 1] != (int)median)
+		while (head->stack_a[head->size_a - 1] != (int)median)
 		{
 			if (head->stack_a[head->size_a - 1] > median)
 				push(head, 'B');

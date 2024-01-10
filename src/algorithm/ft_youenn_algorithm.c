@@ -6,142 +6,107 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:28:08 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/10 02:05:52 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/10 08:41:13 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
 #include "push_swap.h"
-#include <limits.h>
 #include <unistd.h>
 
-void sort_three_element_a(t_head *head)
+static void	sort_three_element_a(t_head *head)
 {
-	if (head->stack_a[1] > head->stack_a[0] && head->stack_a[1] > head->stack_a[2])
+	if (head->stack_a[1] > head->stack_a[0]
+		&& head->stack_a[1] > head->stack_a[2])
 		reverse_rotate(head, 'A');
-	if (head->stack_a[2] > head->stack_a[0] && head->stack_a[2] > head->stack_a[1])
+	if (head->stack_a[2] > head->stack_a[0]
+		&& head->stack_a[2] > head->stack_a[1])
 		rotate(head, 'A');
 	if (head->stack_a[2] > head->stack_a[1])
 		swap(head, 'A');
 }
 
-int	index_to_place_in_a(t_head *head, int nb)
+static void	up_index_on_top_b(t_head *head, int index)
 {
+	int	nb;
+
+	nb = head->stack_b[index];
+	if (index > (head->size_b / 2))
+	{
+		while (head->stack_b[head->size_b - 1] != nb)
+			rotate(head, 'B');
+	}
+	else
+	{
+		while (head->stack_b[head->size_b - 1] != nb)
+			reverse_rotate(head, 'B');
+	}
+}
+
+static void	push_lowest_cost(t_head *head, int index)
+{
+	int	cost;
+
+	cost = index_to_place_in_a(head, head->stack_b[index]);
+	if (cost < (head->size_a / 2))
+	{
+		while (cost)
+		{
+			reverse_rotate(head, 'A');
+			cost--;
+		}
+		push(head, 'A');
+	}
+	else
+	{
+		while (cost < head->size_a)
+		{
+			rotate(head, 'A');
+			cost++;
+		}
+		push(head, 'A');
+	}
+}
+
+static void	adjust_stack_for_extremes(t_head *head, int *stack, int stack_size)
+{
+	int	biggest;
+	int	biggest_index;
 	int	i;
-	int	closest;
-	int	closest_value;
 
 	i = 0;
-	closest = -1;
-	closest_value = INT_MAX;
-	while (i < head->size_a)
+	biggest = 0;
+	while (i < stack_size)
 	{
-		if (head->stack_a[i] < nb && (closest == -1
-				|| head->stack_a[i] > closest_value))
+		if (stack[i] > biggest)
 		{
-			closest = i;
-			closest_value = head->stack_a[i];
+			biggest_index = i;
+			biggest = stack[i];
 		}
 		i++;
 	}
-	if (closest == -1)
-		ft_putstr_fd("tsetse", 2);
-	return (closest);
-}
-
-int cost_to_put_on_top(int index, int stack_size)
-{
-    if (index > (stack_size / 2))
-        return (ABS(index - stack_size));
-    return (index + 1);
-}
-
-int find_lowest_cost(t_head *head)
-{
-	int tmp;
-	int lowest_cost;
-	int lowest_cost_index;
-	int	i;
-
-	lowest_cost = -1;
-	i = 0;
-	while(i < head->size_b)
+	if (biggest_index > stack_size / 2)
 	{
-		tmp = cost_to_put_on_top(i, head->size_b) + cost_to_put_on_top(index_to_place_in_a(head, head->stack_b[i]), head->size_a);
-		if (tmp < lowest_cost || lowest_cost == -1)
-		{
-			lowest_cost = tmp;
-			lowest_cost_index = i;
-		}
-		i++;
+		while (stack[0] != biggest)
+			rotate(head, 'A');
 	}
-	return (lowest_cost_index);
+	else
+	{
+		while (stack[0] != biggest)
+			reverse_rotate(head, 'A');
+	}
 }
 
-//int find_lowest_cost(t_head head, int depth)
-
-void push_lowest_cost(t_head *head, int index)
+void	ft_youenn_algorithm(t_head *head)
 {
-    int cost;
-
-    cost = index_to_place_in_a(head, head->stack_b[index]);
-    if (cost == -1)
-    {
-        push(head, 'A');
-        rotate(head, 'A');
-    }
-    else if (cost < (head->size_a / 2))
-    {
-        while (cost)
-        {
-            reverse_rotate(head, 'A');
-            cost--;
-        }
-        push(head, 'A');
-    }
-    else
-    {
-        while (cost < head->size_a)
-        {
-            rotate(head, 'A');
-            cost++;
-        }
-        push(head, 'A');
-    }
-}
-
-void up_index_on_top_b(t_head *head, int index)
-{
-    int nb;
-
-    nb = head->stack_b[index];
-    if (index > (head->size_b / 2))
-    {
-        while(head->stack_b[head->size_b - 1] != nb)
-            rotate(head, 'B');
-    }
-    else
-    {
-        while(head->stack_b[head->size_b - 1] != nb)
-            reverse_rotate(head, 'B');
-    }
-}
-
-
-void ft_youenn_algorithm(t_head *head)
-{
-	int lowest_cost;
+	int	lowest_cost;
 
 	dicotomie(head);
 	sort_three_element_a(head);
-	while(head->size_b)
+	while (head->size_b)
 	{
 		lowest_cost = find_lowest_cost(head);
-        ft_putnbr_fd(lowest_cost, 2);
-        write(2, "\n", 1);
-        up_index_on_top_b(head, lowest_cost);
+		up_index_on_top_b(head, lowest_cost);
 		push_lowest_cost(head, head->size_b - 1);
 	}
-
+	adjust_stack_for_extremes(head, head->stack_a, head->size_a);
 }

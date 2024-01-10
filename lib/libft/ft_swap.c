@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbonnet <bbonnet@42angouleme.fr>           +#+  +:+       +#+        */
+/*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 22:42:40 by bbonnet           #+#    #+#             */
-/*   Updated: 2024/01/03 22:43:34 by bbonnet          ###   ########.fr       */
+/*   Updated: 2024/01/09 20:16:23 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
-    int tmp;
+	int	tmp;
 
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
