@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:28:08 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/09 01:38:22 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/10 02:42:59 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ void	ft_youenn_algorithm(t_head *head)
 	int	lowest_cost;
 
 	dicotomie(head);
-	//move_non_lis_elements(head);
 	if (head->size_a == 3)
 		sort_three_element_a(head);
 	while (head->size_b)
