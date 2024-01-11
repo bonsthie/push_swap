@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:28:08 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/10 08:41:13 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/11 23:40:33 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 
 static void	sort_three_element_a(t_head *head)
 {
-	if (head->stack_a[1] > head->stack_a[0]
-		&& head->stack_a[1] > head->stack_a[2])
-		reverse_rotate(head, 'A');
-	if (head->stack_a[2] > head->stack_a[0]
+	if (head->size_a == 2)
+	{
+		if (head->stack_a[1] > head->stack_a[0])
+			reverse_rotate(head, 'A');
+		return ;
+	}
+	if ( head->stack_a[2] > head->stack_a[0]
 		&& head->stack_a[2] > head->stack_a[1])
 		rotate(head, 'A');
 	if (head->stack_a[2] > head->stack_a[1])
@@ -74,7 +77,8 @@ static void	adjust_stack_for_extremes(t_head *head, int *stack, int stack_size)
 	int	i;
 
 	i = 0;
-	biggest = 0;
+	biggest = stack[0];
+	biggest_index = 0;
 	while (i < stack_size)
 	{
 		if (stack[i] > biggest)
@@ -100,7 +104,10 @@ void	ft_youenn_algorithm(t_head *head)
 {
 	int	lowest_cost;
 
-	dicotomie(head);
+	if (head->size_a <= 1)
+		return ;
+	if (head->size_a > 3)
+		dicotomie(head);
 	sort_three_element_a(head);
 	while (head->size_b)
 	{
@@ -108,5 +115,6 @@ void	ft_youenn_algorithm(t_head *head)
 		up_index_on_top_b(head, lowest_cost);
 		push_lowest_cost(head, head->size_b - 1);
 	}
-	adjust_stack_for_extremes(head, head->stack_a, head->size_a);
+	if (head->size_a)
+		adjust_stack_for_extremes(head, head->stack_a, head->size_a);
 }

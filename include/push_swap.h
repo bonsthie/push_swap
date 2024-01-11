@@ -6,12 +6,13 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/10 08:50:31 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/11 23:03:19 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
 
 typedef struct s_head
 {
@@ -22,13 +23,19 @@ typedef struct s_head
 	int	size;
 }		t_head;
 
+typedef struct s_node
+{
+	int	value;
+	struct s_node *next;
+} t_node;
+
 # define BOTH 'C'
 
 t_head	*stack_init(int size, char **strs);
-int		fill_stack(int *stack, char ***parse, int stack_size);
+//void	fill_stack(int *stack, t_list *lst);
 
-void	free_parse(char ***parse);
 void	free_stack(t_head *head);
+void free_split(char **strs);
 
 // move
 void	push(t_head *head, char stack_name);

@@ -1,6 +1,150 @@
 [
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/",
+   "-o",
+   "obj/main.o",
+   "-c",
+   "src/main.c"
+  ],
+  "file": "src/main.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_lstnew_bonus.c",
+   "-o",
+   "ft_lstnew_bonus.o"
+  ],
+  "file": "ft_lstnew_bonus.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_lstsize_bonus.c",
+   "-o",
+   "ft_lstsize_bonus.o"
+  ],
+  "file": "ft_lstsize_bonus.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_lstlast_bonus.c",
+   "-o",
+   "ft_lstlast_bonus.o"
+  ],
+  "file": "ft_lstlast_bonus.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_lstadd_back_bonus.c",
+   "-o",
+   "ft_lstadd_back_bonus.o"
+  ],
+  "file": "ft_lstadd_back_bonus.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_lstadd_front_bonus.c",
+   "-o",
+   "ft_lstadd_front_bonus.o"
+  ],
+  "file": "ft_lstadd_front_bonus.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_lstdelone_bonus.c",
+   "-o",
+   "ft_lstdelone_bonus.o"
+  ],
+  "file": "ft_lstdelone_bonus.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_lstclear_bonus.c",
+   "-o",
+   "ft_lstclear_bonus.o"
+  ],
+  "file": "ft_lstclear_bonus.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_lstiter_bonus.c",
+   "-o",
+   "ft_lstiter_bonus.o"
+  ],
+  "file": "ft_lstiter_bonus.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_lstmap_bonus.c",
+   "-o",
+   "ft_lstmap_bonus.o"
+  ],
+  "file": "ft_lstmap_bonus.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -14,7 +158,7 @@
   "file": "ft_atoi.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -28,7 +172,7 @@
   "file": "ft_isalnum.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -42,7 +186,7 @@
   "file": "ft_isdigit.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -56,7 +200,7 @@
   "file": "ft_memcpy.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -70,7 +214,7 @@
   "file": "ft_putchar_fd.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -84,7 +228,7 @@
   "file": "ft_putstr_fd.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -98,7 +242,7 @@
   "file": "ft_strdup.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -112,7 +256,7 @@
   "file": "ft_strlcat.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -126,7 +270,7 @@
   "file": "ft_strmapi.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -140,7 +284,7 @@
   "file": "ft_strrchr.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -154,7 +298,7 @@
   "file": "ft_tolower.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -168,7 +312,7 @@
   "file": "ft_bzero.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -182,7 +326,7 @@
   "file": "ft_isalpha.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -196,7 +340,7 @@
   "file": "ft_isprint.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -210,7 +354,7 @@
   "file": "ft_memchr.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -224,7 +368,7 @@
   "file": "ft_memmove.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -238,7 +382,7 @@
   "file": "ft_putendl_fd.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -252,7 +396,7 @@
   "file": "ft_split.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -266,7 +410,7 @@
   "file": "ft_striteri.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -280,7 +424,7 @@
   "file": "ft_strlcpy.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -294,7 +438,21 @@
   "file": "ft_strncmp.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "ft_strcmp.c",
+   "-o",
+   "ft_strcmp.o"
+  ],
+  "file": "ft_strcmp.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -308,7 +466,7 @@
   "file": "ft_strtrim.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -322,7 +480,7 @@
   "file": "ft_toupper.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -336,7 +494,7 @@
   "file": "ft_calloc.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -350,7 +508,7 @@
   "file": "ft_isascii.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -364,7 +522,7 @@
   "file": "ft_itoa.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -378,7 +536,7 @@
   "file": "ft_memcmp.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -392,7 +550,7 @@
   "file": "ft_memset.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -406,7 +564,7 @@
   "file": "ft_putnbr_fd.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -420,7 +578,7 @@
   "file": "ft_strchr.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -434,7 +592,7 @@
   "file": "ft_strjoin.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -448,7 +606,7 @@
   "file": "ft_strlen.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -462,7 +620,7 @@
   "file": "ft_strnstr.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/libft",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
@@ -476,74 +634,60 @@
   "file": "ft_substr.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/ft_printf",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
    "-c",
+   "ft_swap.c",
    "-o",
-   "ft_printf.o",
-   "ft_printf.c"
+   "ft_swap.o"
   ],
-  "file": "ft_printf.c"
+  "file": "ft_swap.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/ft_printf",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
    "-c",
+   "get_next_line.c",
    "-o",
-   "print.o",
-   "print.c"
+   "get_next_line.o"
   ],
-  "file": "print.c"
+  "file": "get_next_line.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/ft_printf",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
    "-c",
+   "get_next_line_utils.c",
    "-o",
-   "ft_putstr_fd.o",
-   "ft_putstr_fd.c"
+   "get_next_line_utils.o"
   ],
-  "file": "ft_putstr_fd.c"
+  "file": "get_next_line_utils.c"
  },
  {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/ft_printf",
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/libft",
   "arguments": [
    "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
    "-c",
+   "ft_atoll.c",
    "-o",
-   "ft_strlen.o",
-   "ft_strlen.c"
+   "ft_atoll.o"
   ],
-  "file": "ft_strlen.c"
- },
- {
-  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap/lib/ft_printf",
-  "arguments": [
-   "gcc",
-   "-Wall",
-   "-Wextra",
-   "-Werror",
-   "-c",
-   "-o",
-   "ft_putchar_fd.o",
-   "ft_putchar_fd.c"
-  ],
-  "file": "ft_putchar_fd.c"
+  "file": "ft_atoll.c"
  },
  {
   "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap",
@@ -555,15 +699,138 @@
    "-I",
    "include",
    "-I",
-   "lib/libft/.",
-   "-I",
-   "lib/ft_printf/.",
+   "libft/",
    "-o",
-   "obj/main.o",
+   "obj/move.o",
    "-c",
-   "src/main.c",
-   "-g"
+   "src/move.c"
   ],
-  "file": "src/main.c"
+  "file": "src/move.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/",
+   "-o",
+   "obj/parsing.o",
+   "-c",
+   "src/parsing.c"
+  ],
+  "file": "src/parsing.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/",
+   "-o",
+   "obj/is_sorted.o",
+   "-c",
+   "src/is_sorted.c"
+  ],
+  "file": "src/is_sorted.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/",
+   "-o",
+   "obj/free.o",
+   "-c",
+   "src/free.c"
+  ],
+  "file": "src/free.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/",
+   "-o",
+   "obj/fill_stack.o",
+   "-c",
+   "src/fill_stack.c"
+  ],
+  "file": "src/fill_stack.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/",
+   "-o",
+   "obj/algorithm/dicotomie.o",
+   "-c",
+   "src/algorithm/dicotomie.c"
+  ],
+  "file": "src/algorithm/dicotomie.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/",
+   "-o",
+   "obj/algorithm/find_best_move.o",
+   "-c",
+   "src/algorithm/find_best_move.c"
+  ],
+  "file": "src/algorithm/find_best_move.c"
+ },
+ {
+  "directory": "/nfs/homes/babonnet/Documents/push_swap_project/push_swap",
+  "arguments": [
+   "clang",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/",
+   "-o",
+   "obj/algorithm/ft_youenn_algorithm.o",
+   "-c",
+   "src/algorithm/ft_youenn_algorithm.c"
+  ],
+  "file": "src/algorithm/ft_youenn_algorithm.c"
  }
 ]

@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fill_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 19:06:36 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/11 23:36:52 by babonnet         ###   ########.fr       */
+/*   Created: 2024/01/10 08:43:04 by babonnet          #+#    #+#             */
+/*   Updated: 2024/01/11 19:06:19 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
-{
-	t_head	*head;
 
-	head = stack_init(ac, av);
-	if (!head)
-		return (1);
-	ft_youenn_algorithm(head);
-	free_stack(head);
-	return (0);
-}
+//int	fill_stack(int *stack, t_list *lst)
+//{
+//	int	j;
+//	int	k;
+//	int	index;
+//
+//	j = 0;
+//	index = stack_size - 1; 
+//	while (parse[j])
+//	{
+//		k = 0;
+//		while (parse[j][k])
+//		{
+//			index--;
+//			if (fill_stack_node(stack, parse[j][k], index, stack_size))
+//				return (1);
+//			k++;
+//		}
+//		j++;
+//	}
+//	return (0);
+//}
