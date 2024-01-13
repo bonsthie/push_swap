@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:28:08 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/11 23:40:33 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/14 00:33:52 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	sort_three_element_a(t_head *head)
 			reverse_rotate(head, 'A');
 		return ;
 	}
-	if ( head->stack_a[2] > head->stack_a[0]
+	if (head->stack_a[2] > head->stack_a[0]
 		&& head->stack_a[2] > head->stack_a[1])
 		rotate(head, 'A');
 	if (head->stack_a[2] > head->stack_a[1])
@@ -67,36 +67,6 @@ static void	push_lowest_cost(t_head *head, int index)
 			cost++;
 		}
 		push(head, 'A');
-	}
-}
-
-static void	adjust_stack_for_extremes(t_head *head, int *stack, int stack_size)
-{
-	int	biggest;
-	int	biggest_index;
-	int	i;
-
-	i = 0;
-	biggest = stack[0];
-	biggest_index = 0;
-	while (i < stack_size)
-	{
-		if (stack[i] > biggest)
-		{
-			biggest_index = i;
-			biggest = stack[i];
-		}
-		i++;
-	}
-	if (biggest_index > stack_size / 2)
-	{
-		while (stack[0] != biggest)
-			rotate(head, 'A');
-	}
-	else
-	{
-		while (stack[0] != biggest)
-			reverse_rotate(head, 'A');
 	}
 }
 

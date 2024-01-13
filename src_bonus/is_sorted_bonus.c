@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_stack.c                                       :+:      :+:    :+:   */
+/*   is_sorted_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 08:43:04 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/11 19:06:19 by babonnet         ###   ########.fr       */
+/*   Created: 2024/01/04 00:03:20 by bbonnet           #+#    #+#             */
+/*   Updated: 2024/01/13 23:46:55 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "libft.h"
-
-
-//int	fill_stack(int *stack, t_list *lst)
-//{
-//	int	j;
-//	int	k;
-//	int	index;
-//
-//	j = 0;
-//	index = stack_size - 1; 
-//	while (parse[j])
-//	{
-//		k = 0;
-//		while (parse[j][k])
-//		{
-//			index--;
-//			if (fill_stack_node(stack, parse[j][k], index, stack_size))
-//				return (1);
-//			k++;
-//		}
-//		j++;
-//	}
-//	return (0);
-//}
+int	is_sorted(int *stack, int stack_size)
+{
+	stack_size--;
+	while (stack_size > 0)
+	{
+		if (stack[stack_size - 1] < stack[stack_size])
+			return (0);
+		stack_size--;
+	}
+	return (1);
+}

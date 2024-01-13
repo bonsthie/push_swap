@@ -6,86 +6,17 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:26:55 by bbonnet           #+#    #+#             */
-/*   Updated: 2024/01/11 23:41:02 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/14 00:20:52 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "push_swap.h"
-#include "limit.h"
-
-static int	verif_value_strs(char **strs)
-{
-	long long tmp;
-	int	i;
-	int	j;
-
-	i = 0;
-	while (strs[i])
-	{
-		j = 0;
-		if (strs[i][0] == '+' || strs[i][0] == '-')
-			j++;
-		tmp = ft_atoll(strs[i]);
-		if (ft_strlen(strs[i]) >= 10 && (tmp > MAX_INT || tmp < MIN_INT))
-			return (1);
-		while (strs[i][j])
-		{
-			if (!ft_isdigit(strs[i][j]))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-void pop(void *content)
-{
-	if (content)
-		free(content);
-}
-
-int duplicate(t_list *node, int nb)
-{
-	while (node)
-	{
-		if (nb == *(long *)node->content)
-			return (1);
-		node = node->next;
-	}
-	return (0);
-}
-
-int fill_node(t_list **head, char **strs)
-{
-	int *value;
-	int	i;
-
-	if (!strs)
-		return (0);
-	i = 0;
-	if (verif_value_strs(strs))
-		return (1);
-	while(strs[i])
-	{
-		value = malloc(sizeof(int));
-		if (!value)
-			return (1);
-		*value = ft_atoi(*strs);
-		if (duplicate(*head, *value))
-			return (1);
-		ft_lstadd_back(head, ft_lstnew(value));
-		i++;
-	}
-	return (0);
-}
 
 static t_list	*ft_parse(int size, char **strs)
 {
 	t_list	*head;
-	char **values;
-	int i;
+	char	**values;
+	int		i;
 
 	i = 1;
 	head = NULL;
@@ -106,7 +37,7 @@ static t_list	*ft_parse(int size, char **strs)
 
 void	fill_stack(int *stack, int stack_size, t_list *lst)
 {
-	while(--stack_size)
+	while (--stack_size)
 	{
 		stack[stack_size] = *((int *)(long *)lst->content);
 		lst = lst->next;
