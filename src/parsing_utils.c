@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 00:16:39 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/14 00:19:12 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/14 13:40:01 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	fill_node(t_list **head, char **strs)
 	int	i;
 
 	if (!strs)
-		return (0);
+		return (1);
 	i = 0;
 	if (verif_value_strs(strs))
 		return (1);

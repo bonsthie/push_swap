@@ -66,11 +66,11 @@ fclean: clean lclean
 	@if [ -f $(NAME) ]; then \
 		echo "$(RED)Cleaning executable $(NAME)...$(NC)"; \
 		rm -f $(NAME); \
-	fi
+		fi
 	@if [ -f $(NAME_BONUS) ]; then \
 		echo "$(RED)Cleaning executable $(NAME_BONUS)...$(NC)"; \
 		rm -f $(NAME_BONUS); \
-	fi
+		fi
 
 
 re : fclean all

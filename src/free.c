@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:42:15 by bbonnet           #+#    #+#             */
-/*   Updated: 2024/01/14 00:11:47 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/14 13:42:49 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	free_split(char **strs)
 	int	i;
 
 	i = 0;
+	if (!strs)
+		return ;
 	while (strs[i])
 	{
 		if (strs[i])

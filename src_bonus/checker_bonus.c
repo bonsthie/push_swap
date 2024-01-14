@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:49:12 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/14 00:02:30 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/14 14:20:03 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	stack_action(char *cmd, t_head *head)
 	return (1);
 }
 
-void	tester(t_head *head)
+int	tester(t_head *head)
 {
 	char	*tmp;
 	int		status;
@@ -39,15 +39,16 @@ void	tester(t_head *head)
 	{
 		tmp = get_next_line(0);
 		if (!tmp)
-			return ;
+			return (0);
 		status = stack_action(tmp, head);
 		free(tmp);
 		if (status == 1)
 		{
 			ft_putstr_fd("Error\n", 1);
-			return ;
+			return (1);
 		}
 	}
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -57,7 +58,11 @@ int	main(int ac, char **av)
 	head = stack_init(ac, av);
 	if (!head)
 		return (1);
-	tester(head);
+	if (tester(head))
+	{
+		free_stack(head);
+		return (1);
+	}
 	if (is_sorted(head->stack_a, head->size_a) && head->size_a == head->size)
 		ft_putstr_fd("OK\n", 1);
 	else
