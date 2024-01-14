@@ -14,7 +14,7 @@ HSRCS_BONUS = include_bonus
 LIBFT = libft/libft.a
 
 SRC = main.c move1.c move2.c  parsing.c parsing_utils.c link_list.c free.c algorithm/adjust_stack.c \
-	  algorithm/dicotomie.c algorithm/find_best_move.c algorithm/ft_youenn_algorithm.c
+	  algorithm/dicotomie.c algorithm/find_best_move.c algorithm/ft_youenn_algorithm.c is_sorted.c
 
 SRC_BONUS = parsing.c parsing_utils.c link_list.c free.c action_bonus.c is_sorted_bonus.c \
 			checker_bonus.c silent_move1_bonus.c silent_move2_bonus.c

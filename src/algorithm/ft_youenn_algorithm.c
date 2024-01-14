@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:28:08 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/14 16:15:58 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/14 23:32:54 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	sort_three_element_a(t_head *head)
 {
 	if (head->size_a == 2)
 	{
+		if (head->stack_a[1] > head->stack_a[0])
+			reverse_rotate(head, 'A');
 		return ;
 	}
 	if (head->stack_a[1] > head->stack_a[0]

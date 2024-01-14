@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 20:09:50 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/14 16:16:33 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/14 23:34:07 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_head
 
 t_head	*stack_init(int size, char **strs);
 int		fill_node(t_list **head, char **strs);
+int		is_sorted(int *stack, int stack_size);
 
 void	pop(void *content);
 

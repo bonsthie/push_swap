@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 00:16:39 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/14 13:40:01 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:34:26 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	fill_node(t_list **head, char **strs)
 		value = malloc(sizeof(int));
 		if (!value)
 			return (1);
-		*value = ft_atoi(*strs);
+		*value = ft_atoi(strs[i]);
 		if (duplicate(*head, *value))
 			return (1);
 		ft_lstadd_back(head, ft_lstnew(value));
