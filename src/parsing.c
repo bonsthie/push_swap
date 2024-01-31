@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:26:55 by bbonnet           #+#    #+#             */
-/*   Updated: 2024/01/14 23:35:56 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/31 22:34:54 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ t_head	*stack_init(int size, char **strs)
 		size_stack = ft_lstsize(parse);
 	else
 		size_stack = -1;
-	if (!parse)
-		return (NULL);
 	if (size_stack == -1)
 	{
 		ft_putstr_fd("Error\n", 2);

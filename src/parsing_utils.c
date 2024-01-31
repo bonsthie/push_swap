@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 00:16:39 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/14 18:34:26 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/01/31 22:43:56 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static int	verif_value_strs(char **strs)
 		j = 0;
 		if (strs[i][0] == '+' || strs[i][0] == '-')
 			j++;
+		if (strs[i][j] == 0)
+			return (1);
 		tmp = ft_atoll(strs[i]);
 		if (ft_strlen(strs[i]) >= 10 && (tmp > MAX_INT || tmp < MIN_INT))
 			return (1);
@@ -67,7 +69,10 @@ int	fill_node(t_list **head, char **strs)
 			return (1);
 		*value = ft_atoi(strs[i]);
 		if (duplicate(*head, *value))
+		{
+			free(value);
 			return (1);
+		}
 		ft_lstadd_back(head, ft_lstnew(value));
 		i++;
 	}
