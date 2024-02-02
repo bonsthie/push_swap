@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 19:06:36 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/14 23:33:46 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:54:56 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int ac, char **av)
 {
 	t_head	*head;
 
+	if (ac == 1)
+		return (0);
 	head = stack_init(ac, av);
 	if (!head)
 		return (1);

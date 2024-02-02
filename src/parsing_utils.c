@@ -6,7 +6,7 @@
 /*   By: babonnet <babonnet@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 00:16:39 by babonnet          #+#    #+#             */
-/*   Updated: 2024/01/31 22:43:56 by babonnet         ###   ########.fr       */
+/*   Updated: 2024/02/02 22:27:50 by babonnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	duplicate(t_list *node, int nb)
 {
 	while (node)
 	{
-		if (nb == *(long *)node->content)
+		if (nb == *(int *)node->content)
 			return (1);
 		node = node->next;
 	}
